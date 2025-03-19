@@ -1,0 +1,50 @@
+1. Fetch All Facility Names and Their Status
+
+
+SELECT NAME, STATUS
+FROM `adta5240project-443220.RF.RF1`
+LIMIT 50;
+
+
+2. Find All Open Recreation Centers
+
+SELECT NAME, ADDRESS, PHONE
+FROM `adta5240project-443220.RF.RF1`
+WHERE STATUS = 'Open'
+  AND USE_TYPE = 'RECREATION CENTER';
+  
+  
+3. Count Facilities by Type
+
+
+SELECT USE_TYPE, COUNT(*) AS Facility_Count
+FROM `adta5240project-443220.RF.RF1`
+GROUP BY USE_TYPE
+ORDER BY Facility_Count DESC;
+
+
+4. Find Facilities with Outdoor Pools
+
+
+SELECT NAME, ADDRESS, POOL_NAME
+FROM `adta5240project-443220.RF.RF1`
+WHERE POOL = 'outdoor';
+
+
+5. Fetch Facilities with Fitness Centers
+
+SELECT NAME, ADDRESS, FITNESS_CENTER
+FROM `adta5240project-443220.RF.RF1`
+WHERE FITNESS_CENTER != 'No';
+
+6. Count Facilities Created After a Specific Date
+
+SELECT COUNT(*) AS New_Facilities
+FROM `adta5240project-443220.RF.RF1`
+WHERE CREATED > '2022-01-01';
+
+7. List Facilities by GIS_ID
+
+SELECT NAME, GIS_ID
+FROM `adta5240project-443220.RF.RF1`
+ORDER BY GIS_ID ASC;
